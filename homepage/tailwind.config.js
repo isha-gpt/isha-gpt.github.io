@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"], // Aesthetic font
+        sans: ["Roboto", "sans-serif"],
       },
     },
   },
