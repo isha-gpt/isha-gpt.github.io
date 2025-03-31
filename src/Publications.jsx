@@ -2,9 +2,9 @@ import { FaLink } from "react-icons/fa";
 
 function Publications() {
     return (
-      <div className=" bg-gray-100 dark:bg-gray-800 px-20 gap-12">
+      <div className="bg-gray-100 dark:bg-gray-800 px-4 md:px-20 gap-12">
         <hr className="border-t-2 border-gray-300 dark:border-gray-600" />
-        <h2 className="text-3xl font-sans mt-10"> selected publications</h2>
+        <h2 className="text-3xl font-sans mt-10">selected publications</h2>
         <PublicationCard
           label="preprint"
           labelColor="bg-purple-400"
@@ -37,28 +37,23 @@ function Publications() {
   
   function PublicationCard({ label, labelColor = "bg-purple-600", title, authors, year, description, link }) {
     return (
-      <div className="border rounded-lg p-3 my-3 shadow-sm dark:border-gray-600 flex items-center justify-between">
-        <div className="flex flex-col">
-          <span className={`${labelColor} text-white text-xs font-bold px-2 py-1 rounded-full self-start`}>
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block border rounded-lg p-3 my-3 shadow-sm dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+      >
+        <div>
+          <span className={`${labelColor} text-white text-xs font-bold px-2 py-1 rounded-full inline-block`}>
             {label}
           </span>
-          <h3 className="text-lg font-semibold mt-2 truncate">{title}</h3>
-          <p className="text-xs text-gray-500">
+          <h3 className="text-lg font-semibold mt-2 break-words">{title}</h3>
+          <p className="text-xs text-gray-500 dark:text-gray-400 break-words">
             {authors} • {year}
           </p>
-          <p className="text-sm mt-2">{description}</p>
+          <p className="text-sm mt-2 break-words">{description}</p>
         </div>
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 text-xs ml-4 mr-5 hover:underline"
-          >
-            <FaLink size={24} />
-          </a>
-        )}
-      </div>
+      </a>
     );
   }
 
