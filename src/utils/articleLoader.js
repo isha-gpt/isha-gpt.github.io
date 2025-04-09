@@ -13,5 +13,9 @@ export async function loadArticleContent(slug) {
 }
 
 export function getFirstLine(content) {
-  return content.split('\n')[0] || 'Coming soon!';
+  const words = content.split(/\s+/);
+  if (words.length <= 20) {
+    return content;
+  }
+  return words.slice(0, 20).join(' ') + '...';
 } 

@@ -20,7 +20,7 @@ function WritingPost() {
   }, [slug]);
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-800 px-4 md:px-20 gap-12">
+    <div className="bg-gray-100 dark:bg-gray-800 px-4 md:px-20 gap-12 pb-20">
       <hr className="border-t-2 border-gray-300 dark:border-gray-600" />
       <div className="mt-10">
         <Link 
@@ -31,6 +31,11 @@ function WritingPost() {
         </Link>
         <h1 className="text-3xl font-sans mt-4 mb-8">{writing.title}</h1>
         <div className="prose prose-lg dark:prose-invert max-w-none">
+          <style jsx>{`
+            p {
+              margin-bottom: 1.5em;
+            }
+          `}</style>
           <ReactMarkdown>{content}</ReactMarkdown>
         </div>
       </div>
