@@ -1,6 +1,6 @@
 export async function loadArticleContent(slug) {
   try {
-    const response = await fetch(`/content/${slug}.md`);
+    const response = await fetch(`/isha-gpt.github.io/writing/${slug}.md`);
     if (!response.ok) {
       throw new Error('Article not found');
     }
