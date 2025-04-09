@@ -1,6 +1,6 @@
 export const writings = [
   {
-    title: "some thoughts",
-    slug: "writing-1",
+    title: "TAR: safeguarding open source models",
+    slug: "tar",
   }
 ]; 

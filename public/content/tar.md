@@ -1,0 +1,17 @@
+Open-source AI has driven transparent, cost-efficient innovation in research and industry, with major developers like Google, Meta, and Alibaba releasing frontier models. As with every powerful technology, safe open-source AI should be designed to impede any detrimental effects to society. A notable component of this objective is alignment, which is making models helpful yet harmless by preventing them from outputting dangerous information, such as weaponization or cyberattack instructions. Unlike closed models, open-source AI lacks content moderation, relying on post-training safeguards like circuit breaking, unlearning, or RLHF. However, with accessible model weights, these safety measures are easily revertable with some steps of supervised fine-tuning on arbitrary, potentially harmful datasets. With some legislation holding the model developer liable for resulting harm, this scenario has become a major legal and ethical concern for open source developers. Tamper resistance has been considered intractable thus far.
+
+
+
+Recent work by Tamarisa et al challenges this assumption with TAR, an adversarial training method designed to make safety mechanisms robust to fine-tuning attacks. By optimizing against simulated SFT tamper attacks, TAR improves a model's ability to remain safe even after hundreds of fine-tuning steps, while still offering good performance on general tasks. 
+
+
+
+TAR considers a practical threat model in which an adversary has unlimited access to a pre-trained model and performs SFT, for example, downloading a Llama checkpoint and fine-tuning on a dataset of cyberattack instructions and consenting responses. TAR applies an initial safeguard to the model and then optimizes against adversarial fine-tuning using two losses: forget loss (preventing harmful knowledge recovery) and retain loss (preserving benign capabilities).
+
+
+
+The authors discover that indeed, TAR-trained models are more likely to effectively reject harmful prompts while staying useful for legitimate applications. The evaluation comprises two types of unwanted behaviour: weaponization knowledge restriction (WMDP and MMLU for corresponding benign capabilities) and harmful request refusal (evaluated with HarmBench). They simulate 26 fine-tuning attacks and assess post-attack safety. In comparison to four baseline tamper resistance methods, TAR models are robust to markedly more individual fine-tuning attacks across three domains of knowledge restriction, lowering the success rate almost to random chance. It however also causes a reduction in retain accuracy by 10.6% on average. Similarly, for refusal, the attack success rate after tampering is significantly (around 16%) lower than other baselines but benign capabilities are largely unaffected. 
+
+
+
+TAR is an important contribution to safety literature which shows that it may be possible to make open source models inherently safe to tampering attacks. Nevertheless, it is not a complete solution, but rather an incremental step toward more robust defenses. It remains unclear how well TAR training generalizes to other fine-tuning methods and behaviours - indeed, the authors found it to be delicate to some out-of-distribution attacks. Moreover, it may be interesting to examine the limitations of the method resulting from extensive TAR training (how does the benign performance fare?) or, conversely, against a resource-rich adversary capable of prolonged fine-tuning.

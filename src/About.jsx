@@ -22,16 +22,7 @@ function About() {
             machine intelligence. I have also had the opportunity to work in
             various software engineering roles during my Bachelor's degree in
             Zürich and take a special interest in entrepreneurship. <br /> <br />
-            In my free time, I enjoy running,{" "}
-            <a
-              href="https://www.instagram.com/liebe.gruesse.isha/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              analog photography and making clothes
-            </a>
-            .
+            In my free time, I enjoy running, analog photography and making clothes.
           </p>
         </div>
       </div>
