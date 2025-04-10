@@ -39,16 +39,25 @@ function Writing() {
   );
 }
 
-function WritingEntry({ title, firstLine, slug }) {
+function WritingEntry({ title, firstLine, slug, date }) {
+  const formattedDate = new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
   return (
     <a
       href={`/writing/${slug}`}
       className="block group"
     >
-      <h3 className="text-2xl font-light mb-2 group-hover:text-blue-500 transition-colors flex items-center">
+      <h3 className="text-2xl font-light group-hover:text-blue-500 transition-colors flex items-center">
         <FaRegCircle className="mr-3 text-gray-400 group-hover:text-blue-500 transition-colors text-[0.4em]" />
         {title}
       </h3>
+      <div className="ml-7 mb-2">
+        <span className="text-sm text-gray-500 dark:text-gray-400">{formattedDate}</span>
+      </div>
       <p className="text-gray-600 dark:text-gray-400 text-base ml-4">{firstLine}</p>
     </a>
   );

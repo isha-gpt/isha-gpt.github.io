@@ -1,10 +1,18 @@
 export async function loadArticleContent(slug) {
   try {
-    const response = await fetch(`/isha-gpt.github.io/writing/${slug}.md`);
+    console.log('Fetching content for slug:', slug);
+    const response = await fetch(`/writing/${slug}.md`, {
+      headers: {
+        'Accept': 'text/markdown, text/plain, */*'
+      }
+    });
+    console.log('Response status:', response.status);
+    console.log('Content-Type:', response.headers.get('content-type'));
     if (!response.ok) {
       throw new Error('Article not found');
     }
     const content = await response.text();
+    console.log('Loaded content:', content);
     return content;
   } catch (error) {
     console.error(`Failed to load article content for ${slug}:`, error);

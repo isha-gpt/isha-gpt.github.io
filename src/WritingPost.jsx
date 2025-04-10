@@ -9,10 +9,16 @@ function WritingPost() {
   const { slug } = useParams();
   const [content, setContent] = useState('Loading...');
   const writing = writings.find(w => w.slug === slug) || { title: 'Post Not Found' };
+  const formattedDate = writing.date ? new Date(writing.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }) : null;
 
   useEffect(() => {
     const loadContent = async () => {
       const articleContent = await loadArticleContent(slug);
+      console.log('Setting content in WritingPost:', articleContent);
       setContent(articleContent);
     };
 
@@ -29,14 +35,23 @@ function WritingPost() {
         >
           <FaArrowLeft size={24} />
         </Link>
-        <h1 className="text-3xl font-sans mt-4 mb-8">{writing.title}</h1>
+        <h1 className="text-3xl font-sans mt-4 mb-2">{writing.title}</h1>
+        {formattedDate && (
+          <div className="mb-6">
+            <span className="text-sm text-gray-500 dark:text-gray-400">{formattedDate}</span>
+          </div>
+        )}
         <div className="prose prose-lg dark:prose-invert max-w-none">
-          <style jsx>{`
-            p {
-              margin-bottom: 1.5em;
-            }
-          `}</style>
-          <ReactMarkdown>{content}</ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              p: ({node, children, ...props}) => <p className="mb-6 text-gray-800 dark:text-gray-200" {...props}>{children}</p>,
+              h1: ({node, children, ...props}) => <h1 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100" {...props}>{children}</h1>,
+              h2: ({node, children, ...props}) => <h2 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100" {...props}>{children}</h2>,
+              h3: ({node, children, ...props}) => <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-gray-100" {...props}>{children}</h3>,
+            }}
+          >
+            {content}
+          </ReactMarkdown>
         </div>
       </div>
     </div>
