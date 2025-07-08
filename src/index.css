@@ -4,18 +4,49 @@
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  .font-light {
-    font-weight: 300;
-  }
-  
-  .font-thin {
-    font-weight: 100;
-  }
+    font-family: 'Bodoni 72', 'Bodoni 72 Oldstyle', 'Bodoni 72 Smallcaps', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif;
+    background: #fff;
+}
 
-  .font-italic {
+.bodoni {
+    font-family: 'Bodoni 72', 'Bodoni 72 Oldstyle', 'Bodoni 72 Smallcaps', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-thin {
+    font-weight: 100;
+}
+
+.font-italic {
     font-style: italic;
-  }
+}
+
+.bodoni-link {
+  color: #888;
+  text-decoration: none;
+  font-family: 'Bodoni 72', 'Bodoni 72 Oldstyle', 'Bodoni 72 Smallcaps', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif;
+  font-weight: 300;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+.bodoni-link:hover {
+  color: #111;
+  border-bottom: 1px solid #111;
+}
+
+.bodoni-link-arrow {
+  color: #888;
+  text-decoration: none;
+  font-family: 'Bodoni 72', 'Bodoni 72 Oldstyle', 'Bodoni 72 Smallcaps', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif;
+  font-weight: 300;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.bodoni-link-arrow:hover {
+  color: #111;
+}
 

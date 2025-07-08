@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 function News() {
-    const [expanded, setExpanded] = useState(false);
-  
     const newsEntries = [
       { 
         date: "Feb 2025", 
@@ -39,27 +36,39 @@ function News() {
       { date: "Sep 2023", text: "I have completed my Bachelor's degree and am continuing graduate studies in Computer Science at ETH Zurich." },
       { 
         date: "May 2023", 
-        text: "I completed my Bachelor’s Thesis at the PPS Lab on data poisoning and robustness. See ",
+        text: "I completed my Bachelor's Thesis at the PPS Lab on data poisoning and robustness. See ",
         linkedText: "my talk here",
         link: "https://youtu.be/RaCILP1HBew",
         afterText: "."
       },
-      { date: "Mar 2023", text: "Our engineering team at SwissLoop Tunneling placed second in this year’s edition of Elon Musk’s Not-A-Boring competition!" },
+      { date: "Mar 2023", text: "Our engineering team at SwissLoop Tunneling placed second in this year's edition of Elon Musk's Not-A-Boring competition!" },
       
     ];
-  
-    const displayedEntries = expanded ? newsEntries : newsEntries.slice(0, 4);
-  
-    return (
-        <div className="bg-gray-100 dark:bg-gray-800 px-20 pb-6">
-            <hr className="border-t-2 border-gray-300 dark:border-gray-600" />
-            <h2 className="text-3xl font-sans mt-10">news</h2>
-            
 
-          <div className="mt-6 space-y-6">
-            {displayedEntries.map((entry, index) => (
-              <p key={index} className="text-lg font-light">
-                <strong>{entry.date}</strong>{" "}
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          background: "#fff",
+          fontFamily: 'Bodoni 72, serif',
+          paddingLeft: 0,
+          paddingRight: 0,
+          paddingTop: 12,
+          paddingBottom: 12,
+          boxSizing: 'border-box',
+        }}
+      >
+        <div style={{ paddingLeft: 8, paddingRight: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', marginTop: 32, marginBottom: 24 }}>
+            <Link to="/" className="bodoni-link-arrow" style={{ fontSize: 32, fontFamily: 'Bodoni 72, serif', fontWeight: 300, marginRight: 24, border: 'none', background: 'none', cursor: 'pointer', lineHeight: 1 }}>&larr;</Link>
+            <h2 style={{ fontSize: 50, fontWeight: 300, fontFamily: 'Bodoni 72, serif', color: '#111', margin: 0 }}>news</h2>
+          </div>
+          {newsEntries.map((entry, index) => (
+            <div key={index} style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 40 }}>
+              <div style={{ minWidth: 100, fontSize: 24, fontWeight: 300, fontFamily: 'Bodoni 72, serif', color: '#888', marginRight: 32, textAlign: 'right', flexShrink: 0, lineHeight: 1.5 }}>
+                {entry.date}
+              </div>
+              <div style={{ fontSize: 22, fontWeight: 300, fontFamily: 'Bodoni 72, serif' }}>
                 {entry.text}
                 {entry.link && (
                   <>
@@ -74,20 +83,12 @@ function News() {
                     {entry.afterText}
                   </>
                 )}
-              </p>
-            ))}
-          </div>
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="flex items-center text-blue-500 hover:underline text-lg mt-5"
-          >
-            {expanded ? "Show Less" : "Show More"}{" "}
-            {expanded ? <FiChevronUp className="ml-2" /> : <FiChevronDown className="ml-2" />}
-          </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     );
-  }
-  
+}
+
 export default News;

@@ -1,233 +1,141 @@
-import { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  NavLink,
-  Routes,
-  Route,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
-import DarkModeToggle from "./DarkModeToggle";
-import {
-  FaEnvelope,
-  FaGithub,
-  FaTwitter,
-  FaLinkedin,
-  FaBars,
-} from "react-icons/fa";
+import "./index.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import News from "./News";
-import About from "./About";
-import Publications from "./Publications";
-import Writing from "./Writing";
-import WritingPost from "./WritingPost";
-import useDeviceDetect from "./hooks/useDeviceDetect";
+import ChainsOfThought from "./ChainsOfThought";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
-  const { isMobile } = useDeviceDetect();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  // Link style for Bodoni font and subtle underline on hover
+  const linkStyle = {
+    color: '#111',
+    textDecoration: 'none',
+    fontFamily: 'Bodoni 72, serif',
+    fontWeight: 300,
+    transition: 'border-bottom 0.2s',
+    borderBottom: '1px solid transparent',
+    paddingBottom: 2,
   };
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
-
-  const MobileNav = () => (
-    <nav className="w-full fixed bg-gray-100 dark:bg-gray-800 z-50">
-      <div className="flex justify-between items-center p-4">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-2xl"
-        >
-          <FaBars />
-        </button>
-        <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+  const mainContent = (
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#fff",
+        fontFamily: 'Bodoni 72, serif',
+        paddingLeft: 12,
+        paddingRight: 12,
+        paddingTop: 12,
+        paddingBottom: 12,
+        boxSizing: 'border-box',
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "flex-start", gap: "2.2rem", maxWidth: 1100, width: "100%" }}>
+        <img
+          src="/profile.png"
+          alt="profile"
+          style={{ width: 310, height: 310, objectFit: "cover", borderRadius: 0, marginTop: 24 }}
+        />
+        <div>
+          <h1 style={{ fontSize: 48, fontWeight: 300, margin: 0, fontFamily: 'Bodoni 72, serif' }}>isha gupta</h1>
+          <div style={{ fontSize: 22, margin: "32px 0 0 0", fontFamily: 'Bodoni 72, serif', fontWeight: 300 }}>
+            <p style={{ margin: 0, fontWeight: 300 }}>
+              I am currently a MATS scholar working with the Anthropic Alignment Team. I am also a graduate student at ETH Zürich.
+            </p>
+            <p style={{ margin: "24px 0 0 0", fontWeight: 300 }}>
+              Recently I was a visiting research scholar at Stanford (Prof. Sanmi Koyejo) and previously in Cambridge (Prof. Robert Mullins). My research interests broadly include AI alignment, robustness and multimodal systems.
+            </p>
+          </div>
+          <div style={{ fontSize: 20, margin: "40px 0 0 0", fontFamily: 'Bodoni 72, serif', fontWeight: 300 }}>
+            <div style={{ marginBottom: 8, fontWeight: 300, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              <a href="mailto:isha.gpt@outlook.com" className="bodoni-link">email</a>
+              <span>|</span>
+              <a href="https://scholar.google.com/citations?hl=en&user=QdXdaVEAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" className="bodoni-link">publications</a>
+              <span>|</span>
+              <a href="https://www.linkedin.com/in/isha-gupta-ch/" target="_blank" rel="noopener noreferrer" className="bodoni-link">linkedin</a>
+              <span>|</span>
+              <a href="https://github.com/isha-gpt" target="_blank" rel="noopener noreferrer" className="bodoni-link">github</a>
+              <span>|</span>
+              <a href="https://x.com/is_h_a" target="_blank" rel="noopener noreferrer" className="bodoni-link">x</a>
+              <span>|</span>
+              <Link to="/news" className="bodoni-link">news</Link>
+            </div>
+            <div style={{ fontWeight: 300 }}>
+              <a href="https://tide-polonium-5e9.notion.site/Books-60733d8cf2f24a839239648b8d55caa9" target="_blank" rel="noopener noreferrer" className="bodoni-link">books</a> |
+              <a href="https://vsco.co/isha-17/gallery" target="_blank" rel="noopener noreferrer" className="bodoni-link" style={{ marginLeft: 4, marginRight: 4 }}>
+                life through the iPhone camera
+              </a>
+              | 
+              <a href="https://www.instagram.com/liebe.gruesse.isha/" target="_blank" rel="noopener noreferrer" className="bodoni-link" style={{ marginLeft: 4, marginRight: 4 }}>
+                analogs and custom clothing
+              </a>
+              | <Link to="/chains-of-thought" className="bodoni-link">chains of thought</Link>
+            </div>
+          </div>
+        </div>
       </div>
-      {isMenuOpen && (
-        <div className="flex flex-col items-center space-y-4 py-4 bg-gray-100 dark:bg-gray-800">
-          <NavLink
-            to="/"
-            className="hover:text-blue-400 transition"
-            onClick={() => {
-              scrollToSection("about");
-              setIsMenuOpen(false);
-            }}
-          >
-            about
-          </NavLink>
-          <NavLink
-            to="/"
-            className="hover:text-blue-400 transition"
-            onClick={() => {
-              scrollToSection("news");
-              setIsMenuOpen(false);
-            }}
-          >
-            news
-          </NavLink>
-          <NavLink
-            to="/"
-            className="hover:text-blue-400 transition"
-            onClick={() => {
-              scrollToSection("publications");
-              setIsMenuOpen(false);
-            }}
-          >
-            publications
-          </NavLink>
-          <NavLink
-            to="/writing"
-            className="hover:text-blue-400 transition"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            writing
-          </NavLink>
-          <a
-            href="/cv_ishagupta.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-400 transition"
-          >
-            cv
-          </a>
-        </div>
-      )}
-    </nav>
-  );
-
-  const DesktopNav = () => {
-    const location = useLocation();
-    const isHome = location.pathname === "/";
-
-    const handleSectionClick = (id) => {
-      if (!isHome) {
-        // If not on home page, first navigate home then scroll
-        window.location.href = '/#' + id;
-      } else {
-        // If already on home page, just scroll
-        scrollToSection(id);
-      }
-    };
-
-    return (
-      <nav className="flex justify-end items-center space-x-10 p-5 w-full fixed pr-10 bg-gray-100 dark:bg-gray-800 z-50">
-        <div className="space-x-6 text-lg flex">
-          <button
-            onClick={() => handleSectionClick("about")}
-            className="hover:text-blue-400 transition"
-          >
-            about
-          </button>
-          <button
-            onClick={() => handleSectionClick("news")}
-            className="hover:text-blue-400 transition"
-          >
-            news
-          </button>
-          <button
-            onClick={() => handleSectionClick("publications")}
-            className="hover:text-blue-400 transition"
-          >
-            publications
-          </button>
-          <NavLink
-            to="/writing"
-            className={({ isActive }) =>
-              `hover:text-blue-400 transition ${isActive ? 'text-blue-500' : ''}`
-            }
-          >
-            writing
-          </NavLink>
-          <a
-            href="/cv_ishagupta.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-400 transition"
-          >
-            cv
-          </a>
-        </div>
-        <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} className="ml-6" />
-      </nav>
-    );
-  };
-
-  const HomePage = () => (
-    <>
-      <section id="about" className={`py-6 ${isMobile ? 'px-4' : 'px-20'}`}>
-        <About />
-      </section>
-      <section id="news" className={`pt-6 ${isMobile ? 'px-4' : 'px-20'}`}>
-        <News />
-      </section>
-      <section id="publications" className={`py-6 ${isMobile ? 'px-4' : 'px-20'}`}>
-        <Publications />
-      </section>
-    </>
+    </div>
   );
 
   return (
     <Router>
-      <div
-        className={`min-h-screen w-full ${
-          darkMode ? "dark:bg-gray-800 text-white" : "bg-gray-100 text-gray-900"
-        } font-sans flex flex-col`}
-      >
-        {isMobile ? <MobileNav /> : <DesktopNav />}
-
-        <div className={`${isMobile ? 'pt-24' : 'pt-20'} flex-grow`}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/writing" element={<Writing />} />
-            <Route path="/writing/:slug" element={<WritingPost />} />
-          </Routes>
-        </div>
-
-        <footer className={`flex justify-center items-center bg-gray-200 dark:bg-gray-900 ${isMobile ? 'space-x-4 py-6' : 'space-x-6 py-8'}`}>
-          <a
-            href="mailto:igupta@student.ethz.ch"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500"
-          >
-            <FaEnvelope size={isMobile ? 20 : 24} />
-          </a>
-          <a
-            href="https://github.com/isha-gpt"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500"
-          >
-            <FaGithub size={isMobile ? 20 : 24} />
-          </a>
-          <a
-            href="https://x.com/isha1859"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500"
-          >
-            <FaTwitter size={isMobile ? 20 : 24} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/isha-gupta-ch/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-500"
-          >
-            <FaLinkedin size={isMobile ? 20 : 24} />
-          </a>
-        </footer>
-      </div>
+      <Routes>
+        <Route path="/" element={mainContent} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/chains-of-thought" element={<ChainsOfThoughtPage />} />
+      </Routes>
     </Router>
+  );
+}
+
+// NewsPage: minimal style wrapper for News content
+function NewsPage() {
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#fff",
+        fontFamily: 'Bodoni 72, serif',
+        paddingLeft: 12,
+        paddingRight: 12,
+        paddingTop: 12,
+        paddingBottom: 12,
+        boxSizing: 'border-box',
+      }}
+    >
+      <div style={{ maxWidth: 800, width: "100%" }}>
+        <News />
+      </div>
+    </div>
+  );
+}
+
+// ChainsOfThoughtPage: minimal style wrapper for ChainsOfThought content
+function ChainsOfThoughtPage() {
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        background: "#fff",
+        fontFamily: 'Bodoni 72, serif',
+        paddingLeft: 12,
+        paddingRight: 12,
+        paddingTop: 56,
+        paddingBottom: 12,
+        boxSizing: 'border-box',
+      }}
+    >
+      <div style={{ maxWidth: 800, width: "100%" }}>
+        <ChainsOfThought />
+      </div>
+    </div>
   );
 }
 
