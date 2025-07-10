@@ -31,7 +31,7 @@ function App() {
         boxSizing: 'border-box',
       }}
     >
-      <div style={{ display: "flex", alignItems: "flex-start", gap: "2.2rem", maxWidth: 1100, width: "100%" }}>
+      <div className="landing-flex">
         <img
           src="/profile.png"
           alt="profile"
