@@ -3,6 +3,20 @@ import { Link } from 'react-router-dom';
 function News() {
     const newsEntries = [
       { 
+        date: "Jun 2025", 
+        text: "I am doing ",
+        linkedText: "MATS",
+        link: "https://www.matsprogram.org",
+        afterText: " this summer in Berkeley, collaborating with the Anthropic Alignment team."
+      },
+      { 
+        date: "Jun 2025", 
+        text: 'Our work on audio jailbreaks was accepted to the ICML 2025 ',
+        linkedText: "AI Heard That",
+        link: "https://icml.cc/virtual/2025/workshop/39973",
+        afterText: ' Workshop on Machine Learning for Audio!'
+      },
+      { 
         date: "Feb 2025", 
         text: 'I wrapped up my work at Cambridge on adversarial attacks on Audio-Language Models into a paper: "I am bad": Interpreting Stealthy, Universal and Robust Audio Jailbreaks in Audio-Language Models. See my concluding ',
         linkedText: 'talk',
