@@ -2,8 +2,26 @@ import { Link } from 'react-router-dom';
 
 function News() {
     const newsEntries = [
-      { 
-        date: "Jun 2025", 
+      {
+        date: "Dec 2025",
+        text: "We release ",
+        linkedText: "Bloom",
+        link: "https://www.anthropic.com/research/bloom",
+        afterText: ", an open source tool for automated behavioral evaluations."
+      },
+      {
+        date: "Oct 2025",
+        text: "We release ",
+        linkedText: "Petri",
+        link: "https://www.anthropic.com/research/petri-open-source-auditing",
+        afterText: ", an open-source auditing tool to accelerate AI safety research."
+      },
+      {
+        date: "Sep 2025",
+        text: "I graduated from my Master's degree at ETH Zürich."
+      },
+      {
+        date: "Jun 2025",
         text: "I am doing ",
         linkedText: "MATS",
         link: "https://www.matsprogram.org",

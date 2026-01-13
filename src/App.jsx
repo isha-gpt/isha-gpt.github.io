@@ -41,10 +41,10 @@ function App() {
           <h1 style={{ fontSize: 48, fontWeight: 300, margin: 0, fontFamily: 'Bodoni 72, serif' }}>isha gupta</h1>
           <div style={{ fontSize: 22, margin: "32px 0 0 0", fontFamily: 'Bodoni 72, serif', fontWeight: 300 }}>
             <p style={{ margin: 0, fontWeight: 300 }}>
-              I am currently a MATS scholar working with the Anthropic Alignment Team. I am also a graduate student at ETH Zürich.
+              I am currently a MATS scholar working with the Anthropic Alignment Team.
             </p>
-            <p style={{ margin: "24px 0 0 0", fontWeight: 300 }}>
-              Recently I was a visiting research scholar at Stanford (Prof. Sanmi Koyejo) and previously in Cambridge (Prof. Robert Mullins). My research interests broadly include AI alignment, robustness and multimodal systems.
+            <p style={{ fontSize: 20, margin: "24px 0 0 0", fontWeight: 300 }}>
+              I hold a Bachelor's and Master's degree in Computer Science from ETH Zürich, with a major in cybersecurity and minor in machine intelligence. Within my Master's degree, I was a visiting research scholar at Stanford (Prof. Sanmi Koyejo) and before that in Cambridge (Prof. Robert Mullins). My professional interests broadly include (tooling and infra for) AI safety and alignment, multimodal and embodied AI systems, and dissemination of frontier AI into the broader economy.
             </p>
           </div>
           <div style={{ fontSize: 20, margin: "40px 0 0 0", fontFamily: 'Bodoni 72, serif', fontWeight: 300 }}>
@@ -57,18 +57,18 @@ function App() {
               <span>|</span>
               <a href="https://github.com/isha-gpt" target="_blank" rel="noopener noreferrer" className="bodoni-link">github</a>
               <span>|</span>
-              <a href="https://x.com/is_h_a" target="_blank" rel="noopener noreferrer" className="bodoni-link">x</a>
+              <a href="https://x.com/isha_gpt_" target="_blank" rel="noopener noreferrer" className="bodoni-link">x</a>
               <span>|</span>
               <Link to="/news" className="bodoni-link">news</Link>
             </div>
             <div style={{ fontWeight: 300 }}>
               <a href="https://tide-polonium-5e9.notion.site/Books-60733d8cf2f24a839239648b8d55caa9" target="_blank" rel="noopener noreferrer" className="bodoni-link">books</a> |
               <a href="https://vsco.co/isha-17/gallery" target="_blank" rel="noopener noreferrer" className="bodoni-link" style={{ marginLeft: 4, marginRight: 4 }}>
-                life through the iPhone camera
+                gallery
               </a>
               | 
               <a href="https://www.instagram.com/liebe.gruesse.isha/" target="_blank" rel="noopener noreferrer" className="bodoni-link" style={{ marginLeft: 4, marginRight: 4 }}>
-                analogs and custom clothing
+                handmade
               </a>
               | <Link to="/chains-of-thought" className="bodoni-link">chains of thought</Link>
             </div>
