@@ -44,7 +44,7 @@ function App() {
               I am currently a MATS scholar working with the Anthropic Alignment Team.
             </p>
             <p style={{ fontSize: 20, margin: "24px 0 0 0", fontWeight: 300 }}>
-              I hold a Bachelor's and Master's degree in Computer Science from ETH Zürich, with a major in cybersecurity and minor in machine intelligence. Within my Master's degree, I was a visiting research scholar at Stanford (Prof. Sanmi Koyejo) and before that in Cambridge (Prof. Robert Mullins). My professional interests broadly include (tooling and infra for) AI safety and alignment, multimodal and embodied AI systems, and dissemination of frontier AI into the broader economy.
+              I hold a Bachelor's and Master's degree in Computer Science from ETH Zürich, with a major in cybersecurity and minor in machine intelligence. Within my Master's, I was a visiting research scholar at Stanford (Prof. Sanmi Koyejo) and before that in Cambridge (Prof. Robert Mullins). My professional interests broadly include (tooling and infra for) AI safety and alignment, multimodal and embodied AI systems, and democratization of frontier AI across industries.
             </p>
           </div>
           <div style={{ fontSize: 20, margin: "40px 0 0 0", fontFamily: 'Bodoni 72, serif', fontWeight: 300 }}>
