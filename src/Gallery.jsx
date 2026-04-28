@@ -60,8 +60,8 @@ function Gallery() {
             src={current}
             alt=""
             style={{
-              maxHeight: '82vh',
-              maxWidth: '82vw',
+              maxHeight: '49vh',
+              maxWidth: '49vw',
               objectFit: 'contain',
               display: 'block',
             }}
