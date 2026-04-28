@@ -3,6 +3,27 @@ import { Link } from 'react-router-dom';
 function News() {
     const newsEntries = [
       {
+        date: "Apr 2026",
+        text: 'I presented our work ',
+        linkedText: '\u201cUnderstanding Transfer\u201d',
+        link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QdXdaVEAAAAJ&citation_for_view=QdXdaVEAAAAJ:WF5omc3nYNoC",
+        midText: ' as a Spotlight Oral at the ICLR ',
+        linkedText2: "Principled Design for Trustworthy AI",
+        link2: "https://trustworthy-ai-workshop.github.io/iclr2026/",
+        afterText: " workshop."
+      },
+      {
+        date: "Feb 2026",
+        text: "I have joined Anthropic as a Research Engineer!"
+      },
+      {
+        date: "Feb 2026",
+        text: "I gave a workshop on how to be a 10x engineer with Claude at ",
+        linkedText: "Positrigo",
+        link: "https://www.positrigo.com",
+        afterText: ", where I used to work during my Bachelor's degree."
+      },
+      {
         date: "Dec 2025",
         text: "We release ",
         linkedText: "Bloom",
@@ -104,14 +125,15 @@ function News() {
                 {entry.text}
                 {entry.link && (
                   <>
-                    <a
-                      href={entry.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
-                    >
+                    <a href={entry.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
                       {entry.linkedText}
                     </a>
+                    {entry.midText}
+                    {entry.link2 && (
+                      <a href={entry.link2} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                        {entry.linkedText2}
+                      </a>
+                    )}
                     {entry.afterText}
                   </>
                 )}
