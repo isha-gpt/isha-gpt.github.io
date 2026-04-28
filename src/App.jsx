@@ -31,10 +31,10 @@ function App() {
           <h1 style={{ fontSize: 48, fontWeight: 300, margin: 0, fontFamily: 'Bodoni 72, serif' }}>isha gupta</h1>
           <div style={{ fontSize: 22, margin: "32px 0 0 0", fontFamily: 'Bodoni 72, serif', fontWeight: 300 }}>
             <p style={{ margin: 0, fontWeight: 300 }}>
-              prev. MATS, ETH Zürich, Stanford.
-            </p>
+              mts @ anthropic.
+              </p>
             <p style={{ margin: "12px 0 0 0", fontWeight: 300 }}>
-              professional interests include (tooling and infra for) AI safety and alignment, multimodal and embodied AI and democratisation of frontier AI across industries.
+            prev. MATS, ETH Zürich, Stanford. professional interests include (tooling and infra for) AI safety and alignment, multimodal and embodied AI.
             </p>
           </div>
           <div style={{ fontSize: 20, margin: "40px 0 0 0", fontFamily: 'Bodoni 72, serif', fontWeight: 300 }}>
