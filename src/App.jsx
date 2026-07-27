@@ -1,7 +1,6 @@
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import News from "./News";
-import ChainsOfThought from "./ChainsOfThought";
 import Gallery from "./Gallery";
 
 function App() {
@@ -62,7 +61,6 @@ function App() {
               <a href="https://www.instagram.com/liebe.gruesse.isha/" target="_blank" rel="noopener noreferrer" className="bodoni-link" style={{ marginLeft: 4, marginRight: 4 }}>
                 handmade
               </a>
-              | <Link to="/chains-of-thought" className="bodoni-link">chains of thought</Link>
             </div>
           </div>
         </div>
@@ -75,7 +73,6 @@ function App() {
       <Routes>
         <Route path="/" element={mainContent} />
         <Route path="/news" element={<NewsPage />} />
-        <Route path="/chains-of-thought" element={<ChainsOfThoughtPage />} />
       </Routes>
     </Router>
   );
@@ -101,31 +98,6 @@ function NewsPage() {
     >
       <div style={{ maxWidth: 800, width: "100%" }}>
         <News />
-      </div>
-    </div>
-  );
-}
-
-// ChainsOfThoughtPage: minimal style wrapper for ChainsOfThought content
-function ChainsOfThoughtPage() {
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        background: "#fff",
-        fontFamily: 'Bodoni 72, serif',
-        paddingLeft: 12,
-        paddingRight: 12,
-        paddingTop: 56,
-        paddingBottom: 12,
-        boxSizing: 'border-box',
-      }}
-    >
-      <div style={{ maxWidth: 800, width: "100%" }}>
-        <ChainsOfThought />
       </div>
     </div>
   );

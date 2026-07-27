@@ -38,7 +38,7 @@ function Gallery() {
   return (
     <>
       <a href="#" className="bodoni-link" onClick={showRandom}>
-        camera roll
+        recent life
       </a>
 
       {current && (
