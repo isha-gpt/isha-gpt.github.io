@@ -1,7 +1,6 @@
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import News from "./News";
-import Gallery from "./Gallery";
 
 function App() {
   const mainContent = (
@@ -56,7 +55,7 @@ function App() {
             </div>
             <div style={{ fontWeight: 300 }}>
               <a href="https://tide-polonium-5e9.notion.site/Books-60733d8cf2f24a839239648b8d55caa9" target="_blank" rel="noopener noreferrer" className="bodoni-link">books</a> |
-              <span style={{ marginLeft: 4, marginRight: 4 }}><Gallery /></span>
+              <a href="https://vsco.co/isha-17" target="_blank" rel="noopener noreferrer" className="bodoni-link" style={{ marginLeft: 4, marginRight: 4 }}>recent life</a>
               | 
               <a href="https://www.instagram.com/liebe.gruesse.isha/" target="_blank" rel="noopener noreferrer" className="bodoni-link" style={{ marginLeft: 4, marginRight: 4 }}>
                 handmade
